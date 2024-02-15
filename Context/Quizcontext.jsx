@@ -61,6 +61,9 @@ function QuizContext({ children }) {
         data.forEach((item) =>
           item["incorrect_answers"].push(item["correct_answer"])
         );
+        data.forEach((item) => {
+          item["incorrect_answers"].sort(() => Math.random() - 0.5);
+        });
 
         dispatch({ type: "ready", payload: data });
       } catch (err) {

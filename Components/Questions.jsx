@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useQuiz } from "../Context/Quizcontext";
 
 export default function Questions() {
@@ -26,10 +27,14 @@ export default function Questions() {
 }
 
 function Option({ data, dispatch, userAnswer }) {
+  const ans = data["incorrect_answers"];
+  console.log(data);
+  console.log(ans);
+
   return (
     <div className="options">
       <h3>{data.question}</h3>
-      {data["incorrect_answers"].map((item, index) => (
+      {ans.map((item, index) => (
         <button
           className={`btn btn-option ${item === userAnswer ? "answer" : ""} ${
             userAnswer !== null
@@ -47,12 +52,12 @@ function Option({ data, dispatch, userAnswer }) {
       ))}
       {userAnswer ? (
         userAnswer !== data["correct_answer"] ? (
-          <p className="rigthAns">
-            <div style={{ color: "#ef4444", fontSize: "2.2rem" }}>
+          <div className="rigthAns">
+            <p style={{ color: "#ef4444", fontSize: "2.2rem" }}>
               Wrong Answer!!
-            </div>
+            </p>
             <span>Correct Answer is =&gt; </span> {data["correct_answer"]}
-          </p>
+          </div>
         ) : (
           <p style={{ color: "#86efac" }} className="rigthAns">
             Great! Correct Answer.
