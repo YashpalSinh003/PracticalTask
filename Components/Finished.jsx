@@ -6,7 +6,7 @@ export default function Finished() {
     <div>
       <p className="result">
         {rightAnswered > 7
-          ? "You are exceptional intellectual."
+          ? " Great! You are exceptional intellectual."
           : rightAnswered > 4
           ? "You did great!"
           : "You just missed (Try to retake the test)"}

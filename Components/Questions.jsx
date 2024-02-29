@@ -26,6 +26,8 @@ export default function Questions() {
   );
 }
 
+//Option component
+
 function Option({ data, dispatch, userAnswer }) {
   const ans = data["incorrect_answers"];
   console.log(data);
